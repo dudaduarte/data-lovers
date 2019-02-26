@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+.single-pokemon {
+    text-align: center;
+    padding: 2vw;
+    width: 6vw;
+}
+
+.select-type-pokemon, .pokemon-name {
+    margin: 10px;
+}
+
+.select-num-pokemon {
+    margin: 0px;
+}
+
 .root{
     display: flex;
     flex-direction: row;
@@ -50,6 +64,8 @@
      height: 100%;
      width: 100%;
      overflow: auto;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
  }
-
- 
