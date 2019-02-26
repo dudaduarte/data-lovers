@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    <script src="data.js"></script>
-    <script src="main.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="root">
+    <section class="details">
+    <button class="trs next"><i class="far fa-angle-right"></i> </button>
+      <figure class="slider slider-images">
+        <a href="#" class="trs"><img src="" /></a>
+      </figure>
+      <div class="slider slider-data"></div>
+      <button class="trs prev"><i class="far fa-angle-right"></i>
+        </button>
+    </section>
+    <section class="pokemons">
+      <div id="pokemon-div" class="pokemons-panel"></div>
+    </section>
+  </div>
+  </div>
+  <script src="./data/pokemon/pokemon.js"></script>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>

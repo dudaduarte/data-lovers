@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.root{
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    width: 90%;
+    margin: 5vw ;
+}
+
+.figure {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   border: 2px solid red;
+   height: 100%;
+   width: 80%
+ }
+
+ .slider{
+    width: 40%;
+    border: 2px solid black;
+    height: 300px;
+
+ }
+
+
+
+ .details{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  /*border: 1px solid red;*/
+  height: 300px;
+ } 
+ 
+ .pokemons{
+     width: 60%;
+     height: 150%;
+     /*border: 2px solid yellow;*/
+ }
+
+ .pokemons-panel{
+     border: 2px solid blue;
+     height: 100%;
+     width: 100%;
+     overflow: auto;
+ }
+
+ 
