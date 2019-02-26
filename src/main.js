@@ -17,7 +17,7 @@ function showPokemons(){
       <img src="${poke["img"]}"
       class="pokemon-img" />
         <h4 class="select-num-pokemon">${poke["num"]}</h4>
-        <h3 class="product-name">${poke["name"]}</h3>
+        <h3 class="pokemon-name">${poke["name"]}</h3>
         <p class="select-type-pokemon">${poke["type"].join(', ')}</p>
       </div>
       `).join("")}

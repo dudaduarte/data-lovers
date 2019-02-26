@@ -1,37 +1,20 @@
-body {
-    background-color: black;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-#select-pokemon {
-    background-color: white;  
-    display: flex;
-    padding: 2vw;
-    flex-direction: row;
-    width: 40vw;
-    height: 20vw;
-    overflow: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.section-select-pokemon {
+.single-pokemon {
     text-align: center;
     padding: 2vw;
-    width: 7vw;
+    width: 6vw;
 }
 
-.select-type-pokemon, .select-name-pokemon {
+.select-type-pokemon, .pokemon-name {
     margin: 10px;
 }
 
 .select-num-pokemon {
     margin: 0px;
-}
-
-{
-    margin: 0;
-    padding: 0;
 }
 
 .root{
@@ -81,7 +64,8 @@ body {
      height: 100%;
      width: 100%;
      overflow: auto;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
  }
-
- 
->>>>>>> upstream/master
