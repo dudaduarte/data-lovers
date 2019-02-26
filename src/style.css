@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+}
+
+#select-pokemon {
+    background-color: white;  
+    display: flex;
+    padding: 2vw;
+    flex-direction: row;
+    width: 40vw;
+    height: 20vw;
+    overflow: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.section-select-pokemon {
+    text-align: center;
+    padding: 2vw;
+    width: 7vw;
+}
+
+.select-type-pokemon, .select-name-pokemon {
+    margin: 10px;
+}
+
+.select-num-pokemon {
+    margin: 0px;
+}
