@@ -17,6 +17,21 @@
     margin: 0px;
 }
 
+.select-type-pokemon {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.type-pokemon {
+    padding: 5px;
+    margin: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
 .root{
     display: flex;
     flex-direction: row;

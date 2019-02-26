@@ -1,5 +1,4 @@
-
-window.onload = function(){
+window.onload = function () {
     showPokemons();
     console.log(filterByType('Grass'));
 }
@@ -9,13 +8,22 @@ function filterByType(typep){
   return pokemonByType;
 }
 
-function getPokemons(){
+let buttonsFilter = document.querySelectorAll('.type-pokemon');
+
+for (let button of buttonsFilter) {
+    button.addEventListener('click', function (event) {
+        filterPokemons(event.target.value);
+    })
+}
+
+
+function getPokemons() {
     return POKEMON["pokemon"];
 }
 
 function showPokemons(){
     let pokemonDiv = document.querySelector('#pokemon-div');
-  
+
     pokemonDiv.innerHTML = `  
     ${getPokemons().map((poke) => `
     <div class="single-pokemon">
