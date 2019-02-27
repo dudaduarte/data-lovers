@@ -5,40 +5,49 @@
   <meta charset="utf-8">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Coiny|Exo|Luckiest+Guy" rel="stylesheet">
 </head>
 
 <body>
+  <header class='header-style'>
+    <img src="../images/pokeball.png" class='pokebola-title'>
+    <h1> Pokémon Viewer</h1>
+  </header>
   <div class="root">
-    <section class="details">
-      <button class="trs next"><i class="far fa-angle-right"></i> </button>
-      <figure class="slider slider-images">
-        <a href="#" class="trs"><img src="" /></a>
-      </figure>
-      <div class="slider slider-data"></div>
-      <button class="trs prev"><i class="far fa-angle-right"></i>
-      </button>
-    </section>
     <section class="pokemons">
       <div id="pokemon-div" class="pokemons-panel"></div>
-      <div class='select-type-pokemon'>
-          <button class='type-pokemon' value="Normal">Normal</button>
-          <button class='type-pokemon' value='Fighting' >Fighting</button>
-          <button class='type-pokemon' value='Flying'>Flying</button>
-          <button class='type-pokemon' value='Poison'>Poison</button>
-          <button class='type-pokemon' value='Ground'>Ground</button>
-          <button class='type-pokemon' value='Bug'>Bug</button>
-          <button class='type-pokemon' value='Ghost'>Ghost</button>
-          <button class='type-pokemon' value='Steel'>Steel</button>
-          <button class='type-pokemon' value='Fire'>Fire</button> 
-          <button class='type-pokemon' value='Water'>Water</button>
-          <button class='type-pokemon' value='Grass'>Grass</button>
-          <button class='type-pokemon' value='Electric'>Electric</button>
+      <div class='div-select-type'>
+        <h3 class='title-filter'>Filter by type:</h3>
+        <div class='div-buttons'>
+          <button class='type-pokemon normal' value="Normal">Normal</button>
+          <button class='type-pokemon fighting' value='Fighting'>Fighting</button>
+          <button class='type-pokemon flying' value='Flying'>Flying</button>
+          <button class='type-pokemon poison' value='Poison'>Poison</button>
+          <button class='type-pokemon ground' value='Ground'>Ground</button>
+          <button class='type-pokemon bug' value='Bug'>Bug</button>
+          <button class='type-pokemon ghost' value='Ghost'>Ghost</button>
+          <button class='type-pokemon fire' value='Fire'>Fire</button>
+          <button class='type-pokemon water' value='Water'>Water</button>
+          <button class='type-pokemon grass' value='Grass'>Grass</button>
+          <button class='type-pokemon electric' value='Electric'>Electric</button>
+          <button class='type-pokemon all' value='All'>All</button>
         </div>
+      </div>
+      <div class='div-filter-name'>
+        <div class='icon-search'><i class="fas fa-search"></i></div><input id="input-name-pokemon" class='input-name-style' type="text" placeholder="Search for a pokémon by name">
+      </div>
+    </section>
+    <section class='details'>
+    <section class='description-pokemon'>
+
+    </section>
     </section>
   </div>
   </div>
   <script src="./data/pokemon/pokemon.js"></script>
+  <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
 
