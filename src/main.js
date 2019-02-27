@@ -1,6 +1,21 @@
 window.onload = function () {
   showPokemons();
+  getPokemonOnClik();
 }
+
+
+function getPokemonOnClik (){
+  let pokemonList = document.querySelectorAll('.pokemon-img');
+
+  for(let pokemon of pokemonList){
+    pokemon.addEventListener('click', function(event){
+      console.log(event.target.src);
+      setPokemon(event.target.src);
+
+    })
+  }
+}
+
 
 let buttonsFilter = document.querySelectorAll('.type-pokemon');
 
@@ -13,7 +28,9 @@ for (let button of buttonsFilter) {
     } else {
       filterByType(type);
     }
+    getPokemonOnClik();
   })
+  
 }
 
 document.querySelector('#input-name-pokemon').addEventListener('input', function(event) {
@@ -59,6 +76,8 @@ function showFilter(filter) {
     </div>
     `).join("")}
     `
+
+
 }
 
 function searchName(input) {
@@ -66,3 +85,27 @@ function searchName(input) {
   showFilter(filterName);
 }
 
+
+function setPokemon (img){
+  let pickedPokemon = document.querySelector('.picked');
+  let div = document.querySelector('.picked-pokemon');
+
+  div.innerHTML = "";
+  /*
+  if(!pickedPokemon.src){
+    pickedPokemon.src = img;
+  }
+  else{
+    pickedPokemon.removeAttribute(src);
+  }
+*/
+
+  let image = document.createElement("img");
+  image.src=img;
+
+  image.classList.add("poke-teste");
+
+  div.appendChild(image);
+
+  
+}
