@@ -10,6 +10,11 @@ for (let button of buttonsFilter) {
     })
 }
 
+document.querySelector('.all').addEventListener('click', showPokemons);
+document.querySelector('#input-name-pokemon').addEventListener('input', function(event) {
+    searchName(event.target.value);
+});
+
 
 function getPokemons() {
     return POKEMON["pokemon"];
@@ -27,14 +32,19 @@ function showPokemons() {
         <h4 class="select-num-pokemon">${poke["num"]}</h4>
         <h3 class="pokemon-name">${poke["name"]}</h3>
         <p class="select-type-pokemon">${poke["type"].join(', ')}</p>
-      </div>
+    </div>
       `).join("")}
       `
 }
 
+function searchName(input) {
+    const filterName = getPokemons().filter((pokemon) => (pokemon["name"].toLowerCase().includes(input.toLowerCase())));
+    showFilter(filterName);
+}
+
 function filterPokemons(typep) {
-    const filter = getPokemons().filter((pokemon) => (pokemon["type"].includes(typep)));
-    showFilter(filter);
+    const filterType = getPokemons().filter((pokemon) => (pokemon["type"].includes(typep)));
+    showFilter(filterType);
 }
 
 function showFilter(filter) {
@@ -47,8 +57,8 @@ function showFilter(filter) {
       class="pokemon-img" />
         <h4 class="select-num-pokemon">${poke["num"]}</h4>
         <h3 class="pokemon-name">${poke["name"]}</h3>
-        <p class="select-type-pokemon">${poke["type"].join(', ')}</p>
-      </div>
+        <p class="select-type">${poke["type"].join(', ')}</p>
+    </div>
       `).join("")}
       `
 }
