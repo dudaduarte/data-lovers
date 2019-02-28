@@ -18,19 +18,23 @@
   <div class="root">
     <section class='details'>
       <section>
-      <div class="info-picked-pokemon"></div>
-      <div class="evolutions-pokemons"></div>
-    </section>
+        <div class="info-picked-pokemon"></div>
+        <div class="evolutions-pokemons"></div>
+      </section>
       <div class="img-picked-pokemon"></div>
     </section>
     <section class="pokemons">
-      <select class='order'>
-        <option value="crescent">Number - Crescent</option>
-        <option value="decrescent">Number - Decrescent</option>
-        <option value="a-to-z">A to Z</option>
-        <option value="z-to-a">Z to A</option>
-      </select>
-      <div id="pokemon-div" class="pokemons-panel"></div>
+      <section class="container-pokemons-panel">
+        <div class='dropdown-container'>
+        <select class='order'>
+          <option value="crescent">Number - Crescent</option>
+          <option value="decrescent">Number - Decrescent</option>
+          <option value="a-to-z">A to Z</option>
+          <option value="z-to-a">Z to A</option>
+        </select>
+      </div>
+        <div id="pokemon-div" class='pokemons-panel'></div>
+      </section>
       <div class='div-select-type'>
         <h3 class='title-filter'></h3>
         <div class='div-buttons'>
@@ -62,4 +66,4 @@
   <script src="main.js"></script>
 </body>
 
-</html> 
+</html>
