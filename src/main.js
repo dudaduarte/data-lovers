@@ -43,7 +43,7 @@ function filterByType(type) {
 }
 
 function filterByName(input) {
-  const filteredByName = arrayResult.filter((pokemon) => (pokemon["name"].toLowerCase().includes(input.toLowerCase())));
+  const filteredByName = getPokemons().filter((pokemon) => (pokemon["name"].toLowerCase().includes(input.toLowerCase())));
   showPokemons(filteredByName);
 }
 
