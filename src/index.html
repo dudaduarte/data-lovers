@@ -17,9 +17,15 @@
   </header>
   <div class="root">
     <section class="pokemons">
+      <select class='order'>
+        <option value="crescent">Number - Crescent</option>
+        <option value="decrescent">Number - Decrescent</option>
+        <option value="a-to-z">A to Z</option>
+        <option value="z-to-a">Z to A</option>
+      </select>
       <div id="pokemon-div" class="pokemons-panel"></div>
       <div class='div-select-type'>
-        <h3 class='title-filter'>Filter by type:</h3>
+        <h3 class='title-filter'></h3>
         <div class='div-buttons'>
           <button class='type-pokemon normal' value="Normal">Normal</button>
           <button class='type-pokemon fighting' value='Fighting'>Fighting</button>
