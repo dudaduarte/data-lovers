@@ -4,7 +4,7 @@ body {
     font-size: 15px;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -50,6 +50,10 @@ body {
     max-width: 100px;
 }
 
+.pokemon-img:hover {
+    cursor: pointer;
+}
+
 .select-num-pokemon {
     margin: 0px;
 }
@@ -79,7 +83,7 @@ body {
     justify-content: space-between;
     height: 90%;
     width: 90%;
-    margin: 5vw;
+    margin: 4vw;
 }
 
 .figure {
@@ -103,6 +107,7 @@ body {
     width: 45%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
    } 
  
@@ -124,6 +129,26 @@ body {
      align-items: baseline;
      background-color: rgb(248, 248, 248, 0.7);
      border-radius: 10px;
+ }
+
+ #pokemon-div::-webkit-scrollbar-track
+ {
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+     background-color: #F5F5F5;
+     border-radius: 10px;
+ }
+ 
+ #pokemon-div::-webkit-scrollbar
+ {
+     width: 15px;
+     background-color: #F5F5F5;
+     border-radius: 10px;
+ }
+ 
+ #pokemon-div::-webkit-scrollbar-thumb
+ {
+     border-radius: 10px;
+     background-color: #6A92F2; 
  }
 
  .type-pokemon {
@@ -155,7 +180,7 @@ body {
 
 .input-name-style {
     width: 70%;
-    margin: 20px;
+    margin: 10px;
     padding: 15px;
     outline: none;
     border: none;
@@ -219,25 +244,88 @@ body {
     background-color: #F8D030;
 }
 
+.psychic {
+    background-color: #F85888;
+}
+
+.dragon {
+    background-color: #7038F8; 
+}
+
+.rock {
+    background-color: #B8A038;
+}
+
 .all {
     background-color: black;
 }
 
 
-.picked-pokemon{
+.img-picked-pokemon{
     width: 40%;
     height: 40%;
 }
 
 .description-pokemon{
- 
     width: 50%;
     height: 50%;
+}
+
+.description-pokemon-card {
+    width: 40vw;
+    background-color: rgba(62, 62, 238, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;  
+    margin: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.evolution-card {
+    width: 40vw;
+    background-color: rgba(237, 72, 99, 0.7);
+    border-radius: 10px;
+    padding: 20px 40px;
+    color: white; 
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.title-info {
+    font-size: 16px;
+    margin: 0 10px 0 0;
+}
+
+.title-info-name {
+    font-size: 24px;
+    color:rgb(117, 231, 136);
+    justify-self: center;
+    padding: 0 0 15px 0;
+}
+
+.title-info, .info {
+    display: inline-block;
 }
 
 .poke-teste{
     width: 80%;
     height: auto;
-    position: relative;
-    top: 25%
+    /* position: relative;
+    top: 45% */
+    padding: 0 0 15px 0;
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 20px;
+    width: 40vw;
+}
+
+.hidden {
+    display: none;
 }
