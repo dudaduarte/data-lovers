@@ -7,15 +7,15 @@ let arrayResult = [];
 let buttonsFilter = document.querySelectorAll('.type-pokemon');
 
 for (let button of buttonsFilter) {
-    button.addEventListener('click', function (event) {
-        let type = event.target.value;
-        if (type === "All") {
-            showPokemons()
-        } else {
-            filterByType(type);
-        }
-        getPokemonOnClick();
-    })
+  button.addEventListener('click', function (event) {
+    let type = event.target.value;
+    if (type === "All") {
+      showPokemons(getPokemons());
+    } else {
+      filterByType(type);
+    }
+    getPokemonOnClick();
+  })
 }
 
 document.querySelector('#input-name-pokemon').addEventListener('input', function (event) {
@@ -65,13 +65,13 @@ function sortByNumber(order) {
 }
 
 function getPokemonOnClick() {
-    let pokemonList = document.querySelectorAll('.pokemon-img');
+  let pokemonList = document.querySelectorAll('.pokemon-img');
 
-    for (let pokemon of pokemonList) {
-        pokemon.addEventListener('click', function (event) {
-            setPokemon(event.target.src);
-        })
-    }
+  for (let pokemon of pokemonList) {
+    pokemon.addEventListener('click', function (event) {
+      setPokemon(event.target.src);
+    })
+  }
 }
 
 function showPokemons(pokemonList) {
@@ -91,53 +91,71 @@ function showPokemons(pokemonList) {
 }
 
 function setPokemon(img) {
-    const divImg = document.querySelector('.img-picked-pokemon');
-    const divInfo = document.querySelector('.info-picked-pokemon');
-    const divEvolutions = document.querySelector('.evolutions-pokemons');
+  const divImg = document.querySelector('.img-picked-pokemon');
+  const divInfo = document.querySelector('.info-picked-pokemon');
+  const divEvolutions = document.querySelector('.evolution-card');
+  const getInformationsByImg = (getPokemons().filter((pokemon) => (pokemon["img"] === img)))[0];
 
-    const getInformationsByImg = (getPokemons().filter((pokemon) => (pokemon["img"] === img)))[0];
+  document.querySelector('.evolutions-pokemons').classList.remove('hidden');
 
-    divInfo.innerHTML = `
+  showInfoPokemons(divInfo, getInformationsByImg);
+  showNextEvolutions(divEvolutions, getInformationsByImg);
+  showBiggerImg(img, divImg);
+
+}
+
+function showInfoPokemons(divInfo, getInformationsByImg) {
+
+  divInfo.innerHTML = `
     <section class="description-pokemon-card">
-        <section class="info-container">
-            <h5 class="title-info-name">${getInformationsByImg["name"]}</h5>
-            <div>
-                <h5 class="title-info">Type:</h5><span class="info">${getInformationsByImg["type"].join("/")}</span>
-            </div><div>
-                <h5 class="title-info">Weaknesses:</h5><span class="info">${getInformationsByImg["weaknesses"].join(", ")}</span>
-            </div><div>
-                <h5 class="title-info">Spawn Time:</h5><span class="info">${getInformationsByImg["spawn_time"]}</span>
-            </div>
-        </section>
-        <section class="info-container">
-            <div>
-                <h5 class="title-info">Weight:</h5><span class="info">${getInformationsByImg["weight"]}</span>
-            </div><div>
-                <h5 class="title-info">Height:</h5><span class="info">${getInformationsByImg["height"]}</span>
-            </div>
-        </section>
+      <section class="info-container">
+        <h5 class="title-info-name">${getInformationsByImg["name"]}</h5>
+        <div><h5 class="title-info">Type:</h5><span class="info">${getInformationsByImg["type"].join("/")}</span></div>
+        <div><h5 class="title-info">Weaknesses:</h5><span class="info">${getInformationsByImg["weaknesses"].join(", ")}</span></div>
+        <div><h5 class="title-info">Spawn Time:</h5><span class="info">${getInformationsByImg["spawn_time"]}</span></div>
+    </section>
+    <section class="info-container">
+      <div><h5 class="title-info">Weight:</h5><span class="info">${getInformationsByImg["weight"]}</span></div>
+      <div><h5 class="title-info">Height:</h5><span class="info">${getInformationsByImg["height"]}</span></div>
+    </section>
     </section>
         `
+}
 
-    let nextEvolutionsNames = [];
-    const nextEvolutions = getInformationsByImg["next_evolution"];
+function showNextEvolutions(divEvolutions, getInformationsByImg) {
 
-    if (nextEvolutions) {
-        for (let nextPokemon of nextEvolutions) {
-            nextEvolutionsNames.push(nextPokemon["name"]);
+  let nextEvolutionsNames = [];
+  let getInfoByName = [];
+  const nextEvolutions = getInformationsByImg["next_evolution"];
 
-            divEvolutions.innerHTML = `
-        <div class="evolution-card">
-        <h5 class="title-info">Next Evolutions:</h5>
-        <span class="info">${nextEvolutionsNames.join(', ')}
-        </div>
-        `
-        }
-     } else {
-            divEvolutions.innerHTML = "";
-        }
+  if (nextEvolutions) {
+    for (let i in nextEvolutions) {
+      nextEvolutionsNames.push(nextEvolutions[i]["name"]);
+      getInfoByName.push((getPokemons().filter((pokemon) => (pokemon["name"].includes(nextEvolutionsNames[i])))))[i];
+    }
 
-    divImg.innerHTML = `
+    divEvolutions.innerHTML = `  
+    ${getInfoByName.map((poke) => `
+      <div>
+      <img src="${poke[0]["img"]}" class="img-evolutions" />
+        <h3 class="name-evolution">${poke[0]["name"]}</h3>
+      </div>
+      <div>
+      <i class="fas fa-arrow-circle-right"></i>
+      </div>
+      `).join(" ")}
+      `
+
+  } else {
+    divEvolutions.innerHTML = "";
+    document.querySelector('.evolutions-pokemons').classList.add('hidden');
+  }
+
+}
+
+function showBiggerImg(img, divImg) {
+
+  divImg.innerHTML = `
     <img src="${img}" class="poke-teste">    
     `
 }

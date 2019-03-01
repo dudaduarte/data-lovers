@@ -66,7 +66,7 @@ body {
     border: none;
     border-top: 4px solid #88CFF9;
     background-color: rgb(248, 248, 248, 0.7);
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     text-align: center;
 }
 
@@ -83,7 +83,7 @@ body {
     justify-content: space-between;
     height: 90%;
     width: 90%;
-    margin: 4vw;
+    margin: 3vw 4vw;
 }
 
 .figure {
@@ -122,7 +122,7 @@ body {
      width: 100%;
      overflow: auto;
      background-color: rgb(248, 248, 248, 0.7);
-     border-radius: 10px;
+     border-radius: 0 0 10px 10px;
      display: flex;
      flex-direction: column;
  }
@@ -174,7 +174,7 @@ body {
 
 .div-filter-name {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -280,9 +280,8 @@ body {
     width: 40vw;
     background-color: rgba(62, 62, 238, 0.7);
     border-radius: 10px;
-    padding: 20px;
-    color: white;  
-    margin: 5px;
+    padding: 10px;
+    color: white;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -293,10 +292,30 @@ body {
     width: 40vw;
     background-color: rgba(237, 72, 99, 0.7);
     border-radius: 10px;
-    padding: 20px 40px;
+    padding: 10px 20px;
     color: white; 
-    margin: 5px;
+    margin: 5px 0;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-evolutions {
+    max-width: 5vw;
+}
+
+.name-evolution {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* .evolutions-pokemons {
+    display: flex;
+} */
+
+.align-start {
+    align-self: flex-start;
 }
 
 .title-info {
@@ -313,6 +332,11 @@ body {
 
 .title-info, .info {
     display: inline-block;
+}
+
+.fa-arrow-circle-right {
+    font-size: 30px;
+    margin: 0 2vw;
 }
 
 .poke-teste{
@@ -338,16 +362,33 @@ body {
 .order {
     border: none;
     border-radius: 10px;
-    padding: 3px;
-    margin: 5px;
+    padding: 5px;
     outline: none;
     justify-self: flex-end;
+    background-color: #6890F0;
+    color: white;
+    font-family: Exo;
 }
 
 .dropdown-container {
     background-color: white;
     padding: 5px;
-    position: fixed;
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* select.order option:hover {
+    box-shadow: 0 0 10px 100px #ED4863 inset;
+} */
+
+.order-option {
+    background-color: white;
+    color: black;
+    font-family: Exo;
+}
+
+.order-option:disabled {
+    background-color: #C8C8C8;
+    color: #848484;
 }
