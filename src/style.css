@@ -157,9 +157,9 @@ body {
  }
 
  .type-pokemon {
-    padding: 10px;
-    width: 70px;
-    margin: 7px;
+    padding: 0.4em;
+    width: 5em;
+    margin: 0.3em;
     color: white;
     border-radius: 5px;
     border: none;
@@ -239,6 +239,10 @@ body {
 
 .water {
     background-color: #6890F0;
+}
+
+.ice {
+    background-color: rgb(44, 102, 238);
 }
 
 .grass {
@@ -357,7 +361,7 @@ body {
 
 .hidden {
     display: none;
-}
+} 
 
 .order {
     border: none;
@@ -392,3 +396,16 @@ body {
     background-color: #C8C8C8;
     color: #848484;
 }
+
+.arrow-evolution:last-child{
+   display: none;
+}
+
+.type-pokemon-panel{
+    width: 100%
+}
+
+.type-icon{
+    margin: 5px;
+}
+
