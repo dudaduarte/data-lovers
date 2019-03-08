@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Coiny|Exo|Luckiest+Guy" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  ...
+</script>
 </head>
 
 <body>
@@ -28,11 +34,12 @@
     <section class="pokemons">
         <div class='dropdown-container'>
             <select class='order'>
-              <option class="order-option" value="" selected disabled>Order Pokémons by:</option>
+              <option class="order-option" value="" selected disabled>Sort Pokémons by:</option>
               <option class="order-option" value="crescent">Number - Crescent</option>
               <option class="order-option" value="decrescent">Number - Decrescent</option>
               <option class="order-option" value="a-to-z">A to Z</option>
               <option class="order-option" value="z-to-a">Z to A</option>
+              <option class="order-option" value="calc">calculo</option>
             </select>
           </div>
       <section class="container-pokemons-panel">

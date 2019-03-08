@@ -27,6 +27,8 @@ document.querySelector('.order').addEventListener('change', function (event) {
     sortByName();
   } else if (event.target.value === 'z-to-a') {
     showPokemons(arrayResult.reverse())
+  } else if (event.target.value === 'calc'){
+    calcType('Fire');
   } else {
     sortByNumber(event.target.value)
   }
@@ -101,6 +103,8 @@ function setPokemon(img) {
   showInfoPokemons(divInfo, getInformationsByImg);
   showNextEvolutions(divEvolutions, getInformationsByImg);
   showBiggerImg(img, divImg);
+  calcWeigth(getInformationsByImg);
+  calcHeight(getInformationsByImg);
 
 }
 
@@ -115,8 +119,8 @@ function showInfoPokemons(divInfo, getInformationsByImg) {
         <div><h5 class="title-info">Spawn Time:</h5><span class="info">${getInformationsByImg["spawn_time"]}</span></div>
     </section>
     <section class="info-container">
-      <div><h5 class="title-info">Weight:</h5><span class="info">${getInformationsByImg["weight"]}</span></div>
-      <div><h5 class="title-info">Height:</h5><span class="info">${getInformationsByImg["height"]}</span></div>
+      <div><h5 class="title-info">Weight:</h5><span class="info">${parseFloat(getInformationsByImg.weight).toFixed(1)} kg (a média de todos os pokemons é ${calcWeigth()})</span></div>
+      <div><h5 class="title-info">Height:</h5><span class="info">${parseFloat(getInformationsByImg.height).toFixed(1)} m (a média de todos os pokemons é ${calcHeight()})</span></div>
     </section>
     </section>
         `
@@ -158,4 +162,43 @@ function showBiggerImg(img, divImg) {
   divImg.innerHTML = `
     <img src="${img}" class="poke-teste">    
     `
+}
+
+function calcType(type) {
+
+  arrayResult = [];
+  arrayResult = getPokemons().filter((pokemon) => (pokemon["type"].includes(type)));
+
+  console.log(arrayResult);
+
+  let calc = (arrayResult.length/getPokemons().length*100).toFixed(2) + '%';
+
+  console.log(calc);
+}
+
+function calcWeigth() {
+
+  let calcWeightAverage = `${(((getPokemons().map(pokemon => pokemon.weight).reduce((acc, current) => 
+  acc + parseFloat(current), 0)))/getPokemons().length).toFixed(1)} kg`;
+
+  // console.log(getPokemons().length)
+  // console.log(calcWeightAverage);
+  // console.log(weightCurrentPokemon);
+
+  return calcWeightAverage;
+}
+
+function calcHeight() {
+  const calcHeightAverage = `${(((getPokemons().map(pokemon => pokemon.height).reduce((acc, current) => 
+    acc + parseFloat(current), 0)))/getPokemons().length).toFixed(1)} m`;
+
+  // console.log(calcHeightAverage);
+  // console.log(heightCurrentPokemon);
+
+  return calcHeightAverage;
+}
+
+function drawChart() {
+  var data = new google.visualization.DataTable();
+
 }
