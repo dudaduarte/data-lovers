@@ -51,7 +51,6 @@ function getPokemonDescriptionType(type) {
 }
 
 function getPokemonImage(id) {
-  //console.log(getImages().find((pokemon) => (pokemon["id"] === id)));
   return (getImages().find((pokemon) => (pokemon["id"] === id))).src;
 }
 
@@ -150,8 +149,9 @@ function setPokemon(img) {
   let poke = getPokemonObjectByImg(img);
   img = (getPokemonImage(poke.id));
 
-  divImg.innerHTML = `<img src="${img}" class=" ${ parseFloat(poke.height) >= 1 ? 'poke-teste large' : 'poke-teste small'}">`
-
+  divImg.innerHTML = `<img src="${img}" class=" ${ parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
+                      <img src="http://www.pngall.com/wp-content/uploads/2017/05/Shadow-PNG-Image-File.png" class="sombra">`
+  
 
 }
 

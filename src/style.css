@@ -291,6 +291,7 @@ body {
     height: 40%; 
     display: flex;
     align-items: flex-end;
+    z-index: 1;
 }
 
 .description-pokemon{
@@ -384,6 +385,7 @@ body {
      position: relative;
     /*top: 45%;*/
     padding: 0 0 15px 0;
+    z-index: 1;
 }
 
 .large{
@@ -483,4 +485,10 @@ body {
 [data-tooltip]:hover:before{
     display: block;
     z-index: 40;
+}
+
+.sombra{
+    width: 100%;
+    position: relative;
+    right: 85%;
 }
