@@ -288,7 +288,7 @@ body {
 
 .img-picked-pokemon{
     width: 40%;
-    height: 40%;
+    height: 40%; 
     display: flex;
     align-items: flex-end;
 }
@@ -380,11 +380,18 @@ body {
 }
 
 .poke-teste{
-    width: 80%;
     height: auto;
      position: relative;
     /*top: 45%;*/
     padding: 0 0 15px 0;
+}
+
+.large{
+    width: 150%;
+}
+
+.small{
+    width: 80%;
 }
 
 .info-container {

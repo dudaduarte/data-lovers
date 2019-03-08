@@ -37,12 +37,22 @@ function getPokemons() {
 }
 
 function getType() {
-  let aux = DESCRIPTION["description"];
-  return aux;
+  let description = DESCRIPTION["description"];
+  return description;
+}
+
+function getImages() {
+  let images = IMAGES["images"];
+  return images
 }
 
 function getPokemonDescriptionType(type) {
   return (getType().find((pokemon) => (pokemon["type"] === type)));
+}
+
+function getPokemonImage(id) {
+  //console.log(getImages().find((pokemon) => (pokemon["id"] === id)));
+  return (getImages().find((pokemon) => (pokemon["id"] === id))).src;
 }
 
 function filterByType(type) {
@@ -137,7 +147,12 @@ function getPokemonType(type) {
 
 function setPokemon(img) {
   const divImg = document.querySelector('.img-picked-pokemon');
-  divImg.innerHTML = `<img src="${img}" class="poke-teste">`
+  let poke = getPokemonObjectByImg(img);
+  img = (getPokemonImage(poke.id));
+
+  divImg.innerHTML = `<img src="${img}" class=" ${ parseFloat(poke.height) >= 1 ? 'poke-teste large' : 'poke-teste small'}">`
+
+
 }
 
 function showInfoBoard(pokemon) {
