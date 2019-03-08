@@ -1,17 +1,12 @@
 window.onload = function () {
   showPokemons(getPokemons());
-  
-  //mostrar o bulbasaur pokemon ao carregar a pagina
-  setPokemon("http://www.serebii.net/pokemongo/pokemon/001.png");
-  showEvolution("http://www.serebii.net/pokemongo/pokemon/001.png");
-  showInfoBoard("http://www.serebii.net/pokemongo/pokemon/001.png");
+  setPokemon(arrayResult[0].img);
+  showEvolution(arrayResult[0].img);
+  showInfoBoard(arrayResult[0].img);
 }
-
-
 let arrayResult = [];
 
 let buttonsFilter = document.querySelectorAll('.type-pokemon');
-
 for (let button of buttonsFilter) {
   button.addEventListener('click', function (event) {
     let type = event.target.value;
@@ -30,7 +25,7 @@ document.querySelector('#input-name-pokemon').addEventListener('input', function
 
 document.querySelector('.order').addEventListener('change', function (event) {
   if (event.target.value === 'a-to-z' || event.target.value === 'z-to-a') {
-    sortByName()
+    sortByName(event.target.value)
   } else {
     sortByNumber(event.target.value)
   }
@@ -39,6 +34,15 @@ document.querySelector('.order').addEventListener('change', function (event) {
 function getPokemons() {
   arrayResult = POKEMON["pokemon"];
   return arrayResult;
+}
+
+function getType() {
+  let aux = DESCRIPTION["description"];
+  return aux;
+}
+
+function getPokemonDescriptionType(type) {
+  return (getType().find((pokemon) => (pokemon["type"] === type)));
 }
 
 function filterByType(type) {
@@ -51,10 +55,11 @@ function filterByName(input) {
   showPokemons(filteredByName);
 }
 
-function sortByName() {
-  arrayResult = (arrayResult.sort((a, b) =>
-    a.name.localeCompare(b.name))
-  );
+function sortByName(order) {
+  arrayResult = (arrayResult.sort((a, b) => a.name.localeCompare(b.name)));
+  if (order === 'z-to-a') {
+    arrayResult.reverse();
+  }
   showPokemons(arrayResult);
 }
 
@@ -69,7 +74,7 @@ function sortByNumber(order) {
 }
 
 function getPokemonObjectByImg(img) {
-  return (getPokemons().filter((pokemon) => (pokemon["img"] === img)))[0];
+  return (getPokemons().find((pokemon) => (pokemon["img"] === img)));
 }
 
 function getPokemonArrayByImg(img) {
@@ -77,7 +82,7 @@ function getPokemonArrayByImg(img) {
 }
 
 function getPokemonObjectByNumber(num) {
-  return (getPokemons().filter((pokemon) => (pokemon["num"] === num)))[0];
+  return (getPokemons().find((pokemon) => (pokemon["num"] === num)));
 }
 
 function ordena(array) {
@@ -89,7 +94,6 @@ function ordena(array) {
 
 function getPokemonOnClick() {
   let pokemonList = document.querySelectorAll('.pokemon-img');
-
   for (let pokemon of pokemonList) {
     pokemon.addEventListener('click', function (event) {
       setPokemon(event.target.src);
@@ -107,20 +111,28 @@ function showPokemons(pokemonList) {
     <img src="${poke["img"]}"
     class="pokemon-img" />
       <h5 class="select-num-pokemon">${poke["num"]}</h5>
-      <h4 class="pokemon-name">${poke["name"]}</h4>
-      <div class="type-pokemon-panel">${getPokemonType(poke["type"])}</div>
+      <h4 class="pokemon-name">${poke["name"]}</h4> 
+      <div class="type-pokemon-panel">${setTypeIcon(poke["type"])}</div>
     </div>
     `).join("")}
     `
   getPokemonOnClick();
 }
 
-function getPokemonType(type) {
-  let value = '';
-  for (const key in type) {
-    value += '<img class="type-icon" src=../images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">'
+function setTypeIcon(type) {
+  stringType = '';
+  for (key in type) {
+    stringType +=  '<img class="type-icon" src=../images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
   }
-  return value;
+  return stringType;
+}
+
+function getPokemonType(type) {
+  let typeSet = [];
+  for (const key in type) {
+    typeSet.push(type[key]);
+  }
+  return typeSet;
 }
 
 function setPokemon(img) {
@@ -133,18 +145,29 @@ function showInfoBoard(pokemon) {
   let selectedPokemon = getPokemonObjectByImg(pokemon);
 
   divInfo.innerHTML = `
-    <section class="description-pokemon-card">
-      <section class="info-container">
-        <h5 class="title-info-name">${selectedPokemon["name"]}</h5>
-        <div><h5 class="title-info">Type:</h5><span class="info">${selectedPokemon["type"].join("/")}</span></div>
-        <div><h5 class="title-info">Weaknesses:</h5><span class="info">${selectedPokemon["weaknesses"].join(", ")}</span></div>
+  <section class="description-pokemon-card">
+    <div class="title-info-box">
+      <h5 class="title-info-name">${selectedPokemon["name"]}</h5>
+      ${setTypeDescription(selectedPokemon["type"])}
+    </div>
+    <section class="info-container">
+      <div><h5 class="title-info">Weaknesses:</h5><span class="info">${selectedPokemon["weaknesses"].join(", ")}</span></div>
     </section>
     <section class="info-container">
       <div><h5 class="title-info">Weight:</h5><span class="info">${selectedPokemon["weight"]}</span></div>
       <div><h5 class="title-info">Height:</h5><span class="info">${selectedPokemon["height"]}</span></div>
     </section>
     </section>
-    `
+  `
+  document.querySelector('.description-pokemon-card').classList.add(selectedPokemon["type"][0].toLowerCase());
+}
+
+function setTypeDescription(typeArray) {
+  stringType = '';
+  for (type of typeArray) {
+    stringType += '<span class=\"infoinfo\" data-tooltip=\"' + getPokemonDescriptionType(type).desc + '\">' + type.toUpperCase() + '</span>'
+  }
+  return stringType;
 }
 
 function showEvolution(pokemon) {
@@ -152,31 +175,20 @@ function showEvolution(pokemon) {
   let prevEvolution = [];
   let nextEvolution = [];
   const divEvolutions = document.querySelector('.evolution-card');
-
-  if (getPokemonObjectByImg(pokemon).prev_evolution) {
-    prevEvolution = getPokemonObjectByImg(pokemon).prev_evolution;
-    if (prevEvolution.length !== 0) {
-      for (let item in prevEvolution) {
-        evolution.push(getPokemonObjectByNumber(prevEvolution[item].num))
-      }
+ 
+  prevEvolution = getPokemonObjectByImg(pokemon).prev_evolution;
+    for (let item in prevEvolution) {
+      evolution.push(getPokemonObjectByNumber(prevEvolution[item].num))
     }
-  }
 
-  if (getPokemonObjectByImg(pokemon).next_evolution) {
-    nextEvolution = getPokemonObjectByImg(pokemon).next_evolution;
-    if (nextEvolution.length !== 0) {
-      for (let item in nextEvolution) {
-        evolution.push(getPokemonObjectByNumber(nextEvolution[item].num))
-      }
+  nextEvolution = getPokemonObjectByImg(pokemon).next_evolution;
+    for (let item in nextEvolution) {
+      evolution.push(getPokemonObjectByNumber(nextEvolution[item].num))
     }
-  }
-
   evolution.push(getPokemonObjectByImg(pokemon))
   evolution = ordena(evolution);
 
-  if (evolution.length > 1) {
-
-    divEvolutions.innerHTML = `  
+  divEvolutions.innerHTML = `  
     ${evolution.map((poke) => `
       <div>
       <img src="${poke["img"]}" class="img-evolutions" />
@@ -187,10 +199,5 @@ function showEvolution(pokemon) {
       </div>
       `).join(" ")}
       `
-    document.querySelector('.evolutions-pokemons').classList.remove('hidden');
-
-  } else {
-    divEvolutions.innerHTML = "";
-    document.querySelector('.evolutions-pokemons').classList.add('hidden');
-  }
+  document.querySelector('.evolutions-pokemons').classList.remove('hidden');
 }
