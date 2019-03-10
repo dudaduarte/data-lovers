@@ -37,12 +37,21 @@ function getPokemons() {
 }
 
 function getType() {
-  let aux = DESCRIPTION["description"];
-  return aux;
+  let description = DESCRIPTION["description"];
+  return description;
+}
+
+function getImages() {
+  let images = IMAGES["images"];
+  return images
 }
 
 function getPokemonDescriptionType(type) {
   return (getType().find((pokemon) => (pokemon["type"] === type)));
+}
+
+function getPokemonImage(id) {
+  return (getImages().find((pokemon) => (pokemon["id"] === id))).src;
 }
 
 function filterByType(type) {
@@ -122,7 +131,7 @@ function showPokemons(pokemonList) {
 function setTypeIcon(type) {
   stringType = '';
   for (key in type) {
-    stringType +=  '<img class="type-icon" src=../images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
+    stringType +=  '<img class="type-icon" src=../data-lovers/images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
   }
   return stringType;
 }
@@ -137,7 +146,13 @@ function getPokemonType(type) {
 
 function setPokemon(img) {
   const divImg = document.querySelector('.img-picked-pokemon');
-  divImg.innerHTML = `<img src="${img}" class="poke-teste">`
+  let poke = getPokemonObjectByImg(img);
+  img = (getPokemonImage(poke.id));
+
+  divImg.innerHTML = `<img src="${img}" class=" ${ parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
+                      <img src="http://www.pngall.com/wp-content/uploads/2017/05/Shadow-PNG-Image-File.png" class="${ parseFloat(poke.height) >= 1.20 ? 'sombra large' : 'sombra small'}">`
+  
+
 }
 
 function showInfoBoard(pokemon) {

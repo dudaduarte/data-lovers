@@ -4,16 +4,16 @@
 <head>
   <meta charset="utf-8">
   <title>Data Lovers</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../data-lovers/src/style.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Coiny|Exo|Luckiest+Guy" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../data-lovers/images/icons/favicon.ico">
 </head>
 
 <body>
   <header class='header-style'>
-    <img src="../images/pokeball.png" class='pokebola-title'>
+    <img src="../data-lovers/images/pokeball.png" class='pokebola-title'>
     <h1> Pokémon Viewer</h1>
   </header>
   <div class="root">
@@ -24,7 +24,7 @@
           <div class="evolution-card"></div>
         </div>
       </section>
-      <div class="img-picked-pokemon"></div>
+      <figure class="img-picked-pokemon"></figure>
     </section>
     <section class="pokemons">
         <div class='dropdown-container'>
@@ -40,7 +40,6 @@
         <div id="pokemon-div" class='pokemons-panel'></div>
       </section>
       <div class='div-select-type'>
-        <h3 class='title-filter'></h3>
         <div class='div-buttons'>
           <button class='type-pokemon normal' value="Normal">Normal</button>
           <button class='type-pokemon fighting' value='Fighting'>Fighting</button>
@@ -67,9 +66,10 @@
     </section>
   </div>
   </div>
-  <script src="./data/pokemon/pokemon.js"></script>
-  <script src="./data/pokemon/description.js"></script>
-  <script src="main.js"></script>
+  <script src="../data-lovers/src/data/pokemon/pokemon.js"></script>
+  <script src="../data-lovers/src/data/pokemon/description.js"></script>
+  <script src="../data-lovers/src/data/pokemon/images.js"></script>
+  <script src="../data-lovers/src/main.js"></script>
 </body>
 
 </html>
