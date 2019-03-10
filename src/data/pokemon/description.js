@@ -26,7 +26,7 @@ const DESCRIPTION = {
 
     {
         "type": "Flying",
-        "desc": "Pokémon of this type can fly. Many of them live at high altitudes. Most of them are birds and insects. Their power is mostly related with aerial and wind-related attacks. Most of them have wings, but there are also some of them that just float without wings."
+        "desc": "Pokémon of this type can fly. Many of them live at high altitudes. Most of them are birds and insects. Their power is mostly related with aerial and wind-related attacks."
     },
 
     {
@@ -51,7 +51,7 @@ const DESCRIPTION = {
 
     {
         "type": "Poison",
-        "desc": "Poison-type Pokémon are based on poisonous or venomous animals and poisonous plants. Most dual Poison-type Pokémon have Bug-type or Grass-type as their other type. This reflects how, in real life, many insects and plants are poisonous. Some Poison-types also resemble types of pollution."
+        "desc": "Poison-type Pokémon are based on poisonous/venomous animals and plants. Most dual Poison-type Pokémon have Bug or Grass as their other type. This reflects how, in real life, many insects and plants are poisonous. Some Poison-types also resemble types of pollution."
     },
 
     {
@@ -66,7 +66,7 @@ const DESCRIPTION = {
 
     {
         "type": "Water",
-        "desc": "There are more Pokémon of this type than any other type. Most Pokémon of this type also have another type, representing the biodiversity of marine creatures. Most Water-type Pokémon are based on creatures that live on water. Their attacks involve use of water, if not, attacks that can be done only by marine creatures."
+        "desc": "There are more Pokémon of this type than any other type. Most Pokémon of this type also have another type, representing the biodiversity of marine creatures. Their attacks involve use of water."
     },
 
     {

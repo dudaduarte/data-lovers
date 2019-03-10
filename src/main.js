@@ -131,7 +131,7 @@ function showPokemons(pokemonList) {
 function setTypeIcon(type) {
   stringType = '';
   for (key in type) {
-    stringType +=  '<img class="type-icon" src=../images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
+    stringType +=  '<img class="type-icon" src=../data-lovers/images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
   }
   return stringType;
 }
@@ -150,7 +150,7 @@ function setPokemon(img) {
   img = (getPokemonImage(poke.id));
 
   divImg.innerHTML = `<img src="${img}" class=" ${ parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
-                      <img src="http://www.pngall.com/wp-content/uploads/2017/05/Shadow-PNG-Image-File.png" class="sombra">`
+                      <img src="http://www.pngall.com/wp-content/uploads/2017/05/Shadow-PNG-Image-File.png" class="${ parseFloat(poke.height) >= 1.20 ? 'sombra large' : 'sombra small'}">`
   
 
 }

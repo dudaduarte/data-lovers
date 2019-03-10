@@ -10,7 +10,7 @@ const IMAGES = {
         },
         {
             "id": 3,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891760-003venusaur.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/3-Venusaur.png"
         },
         {
             "id": 4,
@@ -22,19 +22,19 @@ const IMAGES = {
         },
         {
             "id": 6,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891763-006charizard.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/6-Charizard.png"
         },
         {
             "id": 7,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891764-007squirtle.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/7-Squirtle.png"
         },
         {
             "id": 8,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891809-008wartortle.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/8-Wartortle.png"
         },
         {
             "id": 9,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891810-009blastoise.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/9-Blastoise.png"
         },
         {
             "id": 10,
@@ -54,7 +54,7 @@ const IMAGES = {
         },
         {
             "id": 14,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891818-014kakuna.png"
+            "src": "https://pngimage.net/wp-content/uploads/2018/06/kakuna-png-9.png"
         },
         {
             "id": 15,
@@ -366,7 +366,7 @@ const IMAGES = {
         },
         {
             "id": 92,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891839-092gastly.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/92-Gastly.png"
         },
         {
             "id": 93,
@@ -434,11 +434,11 @@ const IMAGES = {
         },
         {
             "id": 109,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1892138-109koffing.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-800-800/109-Koffing.png"
         },
         {
             "id": 110,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1898274-110weezing.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-800-800/110-Weezing.png"
         },
         {
             "id": 111,
@@ -490,7 +490,7 @@ const IMAGES = {
         },
         {
             "id": 123,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891850-123scyther.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-800-800/123-Scyther.png"
         },
         {
             "id": 124,
