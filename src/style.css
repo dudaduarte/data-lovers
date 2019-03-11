@@ -27,7 +27,7 @@ body {
 .header-style {
     background-color: #ED2E49;
     color: white;
-    padding: 1vw 0px 1vw 7vw;
+    padding: 1vw 0px 1vw 11.5vw;
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 2px;
     display: flex;
@@ -44,14 +44,14 @@ body {
 
 .header-title {
     color: #EAC02E;
-    font-size: 2vw;
+    font-size: 1.5vw;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #2C6AA9;
 }
 
 .pokemon-title {
-    width: 20vw;
-    margin: 7em 3em .5em;
+    width: 15vw;
+    margin: 4em 2em -.5em;
     transition: .2s;
 }
 
@@ -133,12 +133,13 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 7em 0 0;
+    margin: 3.5em 0 0;
 } 
  
  .pokemons{
-     width: 50%;
+    width: 50%;
     /* height: 150%; */
+    margin-left: 1em;
 }
 
  .container-pokemons-panel{
@@ -327,10 +328,10 @@ body {
 }
 
 .description-pokemon-card {
-    width: 40vw;
+    width: 100%;
     /* background-color: rgba(62, 62, 238, 0.7); */
-    border-radius: 1em;
-    padding: 1em;
+    border-radius: 1em 1em 0 0;
+    padding: 1em 1em 0;
     display: flex;
     flex-direction: column;
     /* align-items: flex-end; */
@@ -340,14 +341,13 @@ body {
 
 .evolution-card {
     width: 40vw;
-    border-radius: 10px;
+    border-radius: 0 0 1em 1em;
     padding: 10px;
-    margin: 5px 0;
     box-sizing: border-box;
 }
 
 .img-evolutions {
-    max-width: 4em;
+    width: 3.7em;
 }
 
 .img-evolutions:hover {
@@ -372,11 +372,11 @@ body {
 
 .title-info {
     font-size: 16px;
-    margin: 0 10px 0 0;
+    margin-top: 0.3em;
 }
 
 .title-info-name {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-right: 0.5em;
 }
 
@@ -388,6 +388,7 @@ body {
 
 .info {
     display: inline-block;
+    font-size: 15px;
 }
 
 .infoinfo{
@@ -518,13 +519,13 @@ body {
     background-color: rgba(255, 255, 255, .6);
     border-radius: 50%;
     border: 3px solid white;
-    width: 6em;
-    height: 6em;
+    width: 4em;
+    height: 4em;
     margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .2s
+    transition: .2s;
 }
 
 .pokemon-circle:hover {
@@ -537,12 +538,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
 
 .sombra{
     /* width: 100%; */
     position: relative;
     /* right: 75%; */
     bottom: 15%;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 
 }

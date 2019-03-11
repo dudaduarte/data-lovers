@@ -133,7 +133,7 @@ function showPokemons(pokemonList) {
 function setTypeIcon(type) {
   stringType = '';
   for (key in type) {
-    stringType += '<img class="type-icon" src=../images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
+    stringType += '<img class="type-icon" src=../data-lovers/images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
   }
   return stringType;
 }
@@ -206,7 +206,7 @@ function showEvolution(pokemon) {
   evolution = ordena(evolution);
 
   if (evolution.length === 1) {
-    document.querySelector('.evolutions-pokemons').classList.add('hidden')
+    document.querySelector('.evolution-card').innerHTML = "";
   } else {
 
     divEvolutions.innerHTML = `  
@@ -223,8 +223,8 @@ function showEvolution(pokemon) {
     `).join(" ")}`
 
     document.querySelector('.evolutions-pokemons').classList.remove('hidden');
-    document.querySelector('.evolution-card').className=`evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
   }
+  document.querySelector('.evolution-card').className=`evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
 }
 
 function calcType(type) {
