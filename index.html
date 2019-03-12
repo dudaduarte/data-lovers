@@ -13,29 +13,32 @@
 
 <body>
   <header class='header-style'>
-    <img src="../data-lovers/images/pokeball.png" class='pokebola-title'>
-    <h1> Pokémon Viewer</h1>
+    <div class='rounded-header'>
+      <img src="../data-lovers/images/pokemon-logo.png" class='pokemon-title'>
+    </div>
   </header>
   <div class="root">
     <section class='details'>
       <section>
         <div class="info-picked-pokemon"></div>
-        <div class="evolutions-pokemons hidden">
-          <div class="evolution-card"></div>
+        <div class="evolutions-pokemons">
+          <div class="evolution-card">
+            <div class='single-pokemon-evolution'></div>
+          </div>
         </div>
       </section>
-      <figure class="img-picked-pokemon"></figure>
+      <div class="img-picked-pokemon"></div>
     </section>
     <section class="pokemons">
-        <div class='dropdown-container'>
-            <select class='order'>
-              <option class="order-option" value="" selected disabled>Order Pokémons by:</option>
-              <option class="order-option" value="crescent">Number - Crescent</option>
-              <option class="order-option" value="decrescent">Number - Decrescent</option>
-              <option class="order-option" value="a-to-z">A to Z</option>
-              <option class="order-option" value="z-to-a">Z to A</option>
-            </select>
-          </div>
+      <div class='dropdown-container'>
+        <select class='order'>
+          <option class="order-option" value="" selected disabled>Sort Pokémons by:</option>
+          <option class="order-option" value="crescent">Number - Crescent</option>
+          <option class="order-option" value="decrescent">Number - Decrescent</option>
+          <option class="order-option" value="a-to-z">A to Z</option>
+          <option class="order-option" value="z-to-a">Z to A</option>
+        </select>
+      </div>
       <section class="container-pokemons-panel">
         <div id="pokemon-div" class='pokemons-panel'></div>
       </section>

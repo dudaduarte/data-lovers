@@ -16,11 +16,17 @@ for (let button of buttonsFilter) {
       filterByType(type);
     }
     getPokemonOnClick();
+    document.querySelector('#input-name-pokemon').value = '';
+    
   })
 }
 
 document.querySelector('#input-name-pokemon').addEventListener('input', function (event) {
   filterByName(event.target.value);
+});
+
+document.querySelector('.pokemon-title').addEventListener('click', function(event){
+  document.location.reload();
 });
 
 document.querySelector('.order').addEventListener('change', function (event) {
@@ -102,13 +108,13 @@ function ordena(array) {
 }
 
 function getPokemonOnClick() {
-  let pokemonList = document.querySelectorAll('.pokemon-img');
+  let pokemonList = document.querySelectorAll('.clickable-image');
   for (let pokemon of pokemonList) {
     pokemon.addEventListener('click', function (event) {
       setPokemon(event.target.src);
       showEvolution(event.target.src);
       showInfoBoard(event.target.src);
-    })
+    }) 
   }
 }
 
@@ -118,7 +124,7 @@ function showPokemons(pokemonList) {
   ${pokemonList.map((poke) => `
   <div class="single-pokemon">
     <img src="${poke["img"]}"
-    class="pokemon-img" />
+    class="pokemon-img clickable-image" />
       <h5 class="select-num-pokemon">${poke["num"]}</h5>
       <h4 class="pokemon-name">${poke["name"]}</h4> 
       <div class="type-pokemon-panel">${setTypeIcon(poke["type"])}</div>
@@ -131,7 +137,7 @@ function showPokemons(pokemonList) {
 function setTypeIcon(type) {
   stringType = '';
   for (key in type) {
-    stringType +=  '<img class="type-icon" src=../data-lovers/images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
+    stringType += '<img class="type-icon" src=../data-lovers/images/icons/' + type[key].toLowerCase() + '.png alt=\"' + type[key] + '\" title=\"' + type[key] + '\">';
   }
   return stringType;
 }
@@ -147,18 +153,13 @@ function getPokemonType(type) {
 function setPokemon(img) {
   const divImg = document.querySelector('.img-picked-pokemon');
   let poke = getPokemonObjectByImg(img);
-  img = (getPokemonImage(poke.id));
-
-  divImg.innerHTML = `<img src="${img}" class=" ${ parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
-                      <img src="http://www.pngall.com/wp-content/uploads/2017/05/Shadow-PNG-Image-File.png" class="${ parseFloat(poke.height) >= 1.20 ? 'sombra large' : 'sombra small'}">`
-  
-
+  divImg.innerHTML = `<img src="${getPokemonImage(poke.id)}" class=" ${parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
+                      <img class="${ parseFloat(poke.height) >= 1.20 ? 'sombra large' : 'sombra small'}">`
 }
 
 function showInfoBoard(pokemon) {
   const divInfo = document.querySelector('.info-picked-pokemon');
   let selectedPokemon = getPokemonObjectByImg(pokemon);
-
   divInfo.innerHTML = `
   <section class="description-pokemon-card">
     <div class="title-info-box">
@@ -189,30 +190,34 @@ function showEvolution(pokemon) {
   let evolution = [];
   let prevEvolution = [];
   let nextEvolution = [];
-  const divEvolutions = document.querySelector('.evolution-card');
- 
-  prevEvolution = getPokemonObjectByImg(pokemon).prev_evolution;
-    for (let item in prevEvolution) {
-      evolution.push(getPokemonObjectByNumber(prevEvolution[item].num))
-    }
+  const divEvolutions = document.querySelector('.single-pokemon-evolution');
 
+  prevEvolution = getPokemonObjectByImg(pokemon).prev_evolution;
+  for (let item in prevEvolution) {
+    evolution.push(getPokemonObjectByNumber(prevEvolution[item].num))
+  }
   nextEvolution = getPokemonObjectByImg(pokemon).next_evolution;
-    for (let item in nextEvolution) {
-      evolution.push(getPokemonObjectByNumber(nextEvolution[item].num))
-    }
+  for (let item in nextEvolution) {
+    evolution.push(getPokemonObjectByNumber(nextEvolution[item].num))
+  }
   evolution.push(getPokemonObjectByImg(pokemon))
   evolution = ordena(evolution);
 
   divEvolutions.innerHTML = `  
     ${evolution.map((poke) => `
-      <div>
-      <img src="${poke["img"]}" class="img-evolutions" />
-        <h3 class="name-evolution">${poke["name"]}</h3>
-      </div>
-      <div class="arrow-evolution">
-      <i class="fas fa-arrow-circle-right"></i>
-      </div>
-      `).join(" ")}
-      `
+    <div>
+    <div class="pokemon-circle">
+    <img src="${poke["img"]}" class="img-evolutions clickable-image" />
+    </div>
+    <h4 class="name-evolution">${poke["name"]}</h4>
+    </div>
+    <div class="arrow-evolution">
+    <i class="fas fa-arrow-circle-right"></i>
+    </div>
+    `).join(" ")}`
+
   document.querySelector('.evolutions-pokemons').classList.remove('hidden');
+  document.querySelector('.evolution-card').className = `evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
+
+  getPokemonOnClick();
 }
