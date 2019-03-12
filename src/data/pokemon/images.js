@@ -2,15 +2,16 @@ const IMAGES = {
     "images": [
         {
             "id": 1,
-            "src": "http://hotelsdenhaag.org/wp-content/uploads/2016/09/pokemon.png"
+            "src": "https://i.imgur.com/fpRgrYJ.png",
+            "desc":"Bulbasaur is a small, quadruped Pokémon that has blue-green skin with darker green patches. Each of its thick legs ends with three sharp claws. On its back is a green plant bulb, which is grown from a seed planted there at birth. The bulb provides it with energy through photosynthesis as well as from the nutrient-rich seeds contained within."
         },
         {
             "id": 2,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891759-002ivysaur.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/2-Ivysaur.png"
         },
         {
             "id": 3,
-            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/3-Venusaur.png"
+            "src": "https://t7.rbxcdn.com/87412f21e97af4680b67347f3e82d688"
         },
         {
             "id": 4,
@@ -18,7 +19,7 @@ const IMAGES = {
         },
         {
             "id": 5,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891762-005charmeleon.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/5-Charmeleon.png"
         },
         {
             "id": 6,
@@ -42,19 +43,19 @@ const IMAGES = {
         },
         {
             "id": 11,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1895815-011metapod.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/11-Metapod.png"
         },
         {
             "id": 12,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1892298-012butterfree.png"
+            "src": "https://i.imgur.com/zpeVHql.png"
         },
         {
             "id": 13,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891817-013weedle.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/13-Weedle.png"
         },
         {
             "id": 14,
-            "src": "https://pngimage.net/wp-content/uploads/2018/06/kakuna-png-9.png"
+            "src": "https://i.imgur.com/dSMWWDw.png"
         },
         {
             "id": 15,
@@ -78,7 +79,7 @@ const IMAGES = {
         },
         {
             "id": 20,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1898245-020raticate.png"
+            "src": "https://i.imgur.com/O6P0XJ4.png"
         },
         {
             "id": 21,
@@ -86,7 +87,7 @@ const IMAGES = {
         },
         {
             "id": 22,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1898247-022fearow.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/22-Fearow.png"
         },
         {
             "id": 23,
@@ -166,7 +167,7 @@ const IMAGES = {
         },
         {
             "id": 42,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891826-042golbat.png"
+            "src": "https://i.imgur.com/vcIn9Yr.png"
         },
         {
             "id": 43,
@@ -182,7 +183,7 @@ const IMAGES = {
         },
         {
             "id": 46,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1898259-046paras.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/46-Paras.png"
         },
         {
             "id": 47,
@@ -198,7 +199,7 @@ const IMAGES = {
         },
         {
             "id": 50,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1892133-050diglett.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/50-Diglett.png"
         },
         {
             "id": 51,
@@ -230,7 +231,7 @@ const IMAGES = {
         },
         {
             "id": 58,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891827-058growlithe.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/58-Growlithe.png"
         },
         {
             "id": 59,
@@ -294,7 +295,7 @@ const IMAGES = {
         },
         {
             "id": 74,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1898243-074geodude.png"
+            "src": "https://i.imgur.com/lurxhGh.png"
         },
         {
             "id": 75,
@@ -330,7 +331,7 @@ const IMAGES = {
         },
         {
             "id": 83,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891838-083farfetch_d.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/83-Farfetchd.png"
         },
         {
             "id": 84,
@@ -342,7 +343,7 @@ const IMAGES = {
         },
         {
             "id": 86,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1892316-086seel.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/86-Seel.png"
         },
         {
             "id": 87,
@@ -366,7 +367,7 @@ const IMAGES = {
         },
         {
             "id": 92,
-            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/92-Gastly.png"
+            "src": "https://i.imgur.com/I8Is4gS.png"
         },
         {
             "id": 93,
@@ -558,7 +559,7 @@ const IMAGES = {
         },
         {
             "id": 140,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891959-140kabuto.png"
+            "src": "https://i.imgur.com/IktThea.png"
         },
         {
             "id": 141,
@@ -566,7 +567,7 @@ const IMAGES = {
         },
         {
             "id": 142,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891961-142aerodactyl.png"
+            "src": "https://i.imgur.com/DGjYLbS.png"
         },
         {
             "id": 143,
@@ -582,7 +583,7 @@ const IMAGES = {
         },
         {
             "id": 146,
-            "src": "https://static.giantbomb.com/uploads/scale_small/13/135472/1891710-146moltres.png"
+            "src": "https://i.imgur.com/tRz2zYU.png"
         },
         {
             "id": 147,

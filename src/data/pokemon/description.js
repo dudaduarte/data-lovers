@@ -21,7 +21,7 @@ const DESCRIPTION = {
 
     {
         "type": "Fire",
-        "desc": "Fire-type moves are based on attacks of fire itself. Fire types are also immune to being Burned. Fire Pokémon have notably fewer species compared to the other types, due to a lack of natural phenomena that can be described as fire"
+        "desc": "Fire-type moves are based on attacks of fire itself and are also immune to being Burned. Fire Pokémon have notably fewer species compared to the other types, due to a lack of natural phenomena that can be described as fire"
     },
 
     {
