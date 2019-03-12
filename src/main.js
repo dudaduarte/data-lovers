@@ -3,6 +3,7 @@ window.onload = function () {
   setPokemon(arrayResult[0].img);
   showEvolution(arrayResult[0].img);
   showInfoBoard(arrayResult[0].img);
+  getPokemonOnClick(document.querySelectorAll('.img-evolutions'));
 }
 let arrayResult = [];
 
@@ -29,6 +30,7 @@ document.querySelector('.pokemon-title').addEventListener('click', function(even
 });
 
 document.querySelector('.order').addEventListener('change', function (event) {
+
   if (event.target.value === 'a-to-z' || event.target.value === 'z-to-a') {
     sortByName(event.target.value)
   } else {
@@ -107,8 +109,6 @@ function ordena(array) {
 }
 
 function getPokemonOnClick(pokemonList) {
-  //let pokemonList = document.querySelectorAll('.clickable-image');
-  //console.log(pokemonList);
   for (let pokemon of pokemonList) {
     
     pokemon.addEventListener('click', function (event) {
@@ -171,8 +171,8 @@ function showInfoBoard(pokemon) {
       <div><h5 class="title-info">Weaknesses:</h5><span class="info">${selectedPokemon["weaknesses"].join(", ")}</span></div>
     </section>
     <section class="info-container">
-      <div><h5 class="title-info">Weight:</h5><span class="info">${selectedPokemon["weight"]}</span></div>
-      <div><h5 class="title-info">Height:</h5><span class="info">${selectedPokemon["height"]}</span></div>
+      <div><h5 class="title-info">Weight:</h5><span class="info">${parseFloat(selectedPokemon.weight).toFixed(1)} kg - the average of all 151 pokémons is ${calcWeigth()}</span></div>
+      <div><h5 class="title-info">Height:</h5><span class="info">${parseFloat(selectedPokemon.height).toFixed(1)} m - the average of all 151 pokémons is ${calcHeight()}</span></div>
     </section>
     </section>
   `
@@ -182,7 +182,7 @@ function showInfoBoard(pokemon) {
 function setTypeDescription(typeArray) {
   stringType = '';
   for (type of typeArray) {
-    stringType += '<span class=\"infoinfo\" data-tooltip=\"' + getPokemonDescriptionType(type).desc + '\">' + type.toUpperCase() + '</span>'
+    stringType += `<span class="infoinfo" data-tooltip="${getPokemonDescriptionType(type).desc} Pokemons type ${type} represents ${calcType(type)} of all the 151 Pokémons."> ${type.toUpperCase()} </span>`
   }
   return stringType;
 }
@@ -204,7 +204,11 @@ function showEvolution(pokemon) {
   evolution.push(getPokemonObjectByImg(pokemon))
   evolution = ordena(evolution);
 
-  divEvolutions.innerHTML = `  
+  if (evolution.length === 1) {
+    document.querySelector('.evolutions-pokemons').classList.add('hidden')
+  } else {
+
+    divEvolutions.innerHTML = `  
     ${evolution.map((poke) => `
     <div>
     <div class="pokemon-circle">
@@ -217,18 +221,19 @@ function showEvolution(pokemon) {
     </div>
     `).join(" ")}`
 
-  document.querySelector('.evolutions-pokemons').classList.remove('hidden');
-  document.querySelector('.evolution-card').className = `evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
-  //calcType(getPokemonObjectByImg(pokemon).type)
-   getPokemonOnClick(document.querySelectorAll(".clickable-image"));
+    document.querySelector('.evolutions-pokemons').classList.remove('hidden');
+    document.querySelector('.evolution-card').className=`evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
+  }
 }
 
 function calcType(type) {
-  let calc = [];
-  for(key in type){
-    calc.push((getPokemons().reduce((count, pokemon) => count + (pokemon.type.includes(type[key])),0))*1.15).toFixed(1);
-  }
-  console.log(calc);
+
+  arrayResult = [];
+  arrayResult = getPokemons().filter((pokemon) => (pokemon["type"].includes(type)));
+
+  let calc = (arrayResult.length / getPokemons().length * 100).toFixed(2) + '%';
+
+  return calc;
 }
 
 function calcWeigth() {

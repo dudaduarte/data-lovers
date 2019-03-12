@@ -35,9 +35,20 @@ background-image: url(../images/bg2.png);
     -webkit-text-stroke-color: #2C6AA9;
 }
 
+.pokemon-title {
+    width: 20vw;
+    margin: 7.5em 0 0;
+    transition: .2s;
+}
+
+.pokemon-title:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
 .single-pokemon {
     text-align: center;
-    padding: 1vw 2vw;
+    padding: 1em 2em;
     width: 6vw;
 }
 
@@ -47,25 +58,25 @@ background-image: url(../images/bg2.png);
 
 .pokemon-img {
     max-width: 100px;
+    transition: .2s;
 }
 
 .pokemon-img:hover {
     cursor: pointer;
+    transform: scale(1.2);
 }
 
 .select-num-pokemon {
-    margin: 0px;
+    margin: 0;
 }
 
 .div-select-type {
     padding: 10px 0;
-    margin: 10px 0 0 0;
+    margin: 5px 0;
     width: 100%;
     flex-wrap: wrap;
-    border: none;
-    border-top: 4px solid #88CFF9;
     background-color: rgb(248, 248, 248, 0.7);
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -158,21 +169,21 @@ background-image: url(../images/bg2.png);
     color: white !important;
     border: none;
     outline: none;
-    transition: background-color 300ms ease;
+    transition: .2s;
 }
 
 .type-pokemon:hover, .type-pokemon:active, .type-pokemon:focus {
-    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 0 0 3pt white;
 }
 
 .div-filter-name {
     width: 100%;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border: none;
-    border-top: 4px solid #88CFF9;
     background-color: rgb(248, 248, 248, 0.7);
 }
 
@@ -318,6 +329,8 @@ background-image: url(../images/bg2.png);
 .name-evolution {
     text-align: center;
     letter-spacing: 1px;
+    word-wrap: break-word;
+    max-width: 7em;
 }
 
 .align-start {
@@ -357,7 +370,8 @@ background-image: url(../images/bg2.png);
 
 .fa-arrow-circle-right {
     font-size: 30px;
-    margin: 0 2vw;
+    margin: 0 1vw;
+    color: white;
 }
 
 .poke-teste {
@@ -456,6 +470,30 @@ background-image: url(../images/bg2.png);
 [data-tooltip]:hover:before{
     display: block;
     z-index: 40;
+}
+.pokemon-circle {
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 50%;
+    border: 3px solid white;
+    width: 6em;
+    height: 6em;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s
+}
+
+.pokemon-circle:hover {
+    transform: scale(1.05);
+}
+
+.single-pokemon-evolution {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .sombra{

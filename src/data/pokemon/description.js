@@ -1,7 +1,7 @@
 const DESCRIPTION = {
     "description": [{
         "type": "Bug",
-        "desc": "Bug-type Pokémon are characterized by their fast growing, as they don't take long to evolve. They live mostly (not all of them) in forests, some of them are a little harder to find because they live atop the trees."
+        "desc":  `Bug-type Pokémon are characterized by their fast growing, as they don't take long to evolve. They live mostly (not all of them) in forests, some of them are a little harder to find because they live atop the trees.`
     },
 
     {
