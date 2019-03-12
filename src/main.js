@@ -17,7 +17,6 @@ for (let button of buttonsFilter) {
     }
     getPokemonOnClick();
     document.querySelector('#input-name-pokemon').value = '';
-    
   })
 }
 
@@ -107,9 +106,11 @@ function ordena(array) {
   return aux;
 }
 
-function getPokemonOnClick() {
-  let pokemonList = document.querySelectorAll('.clickable-image');
+function getPokemonOnClick(pokemonList) {
+  //let pokemonList = document.querySelectorAll('.clickable-image');
+  //console.log(pokemonList);
   for (let pokemon of pokemonList) {
+    
     pokemon.addEventListener('click', function (event) {
       setPokemon(event.target.src);
       showEvolution(event.target.src);
@@ -124,14 +125,14 @@ function showPokemons(pokemonList) {
   ${pokemonList.map((poke) => `
   <div class="single-pokemon">
     <img src="${poke["img"]}"
-    class="pokemon-img clickable-image" />
+    class="pokemon-img" />
       <h5 class="select-num-pokemon">${poke["num"]}</h5>
       <h4 class="pokemon-name">${poke["name"]}</h4> 
       <div class="type-pokemon-panel">${setTypeIcon(poke["type"])}</div>
     </div>
     `).join("")}
     `
-  getPokemonOnClick();
+  getPokemonOnClick(document.querySelectorAll(".pokemon-img"));
 }
 
 function setTypeIcon(type) {
@@ -218,6 +219,26 @@ function showEvolution(pokemon) {
 
   document.querySelector('.evolutions-pokemons').classList.remove('hidden');
   document.querySelector('.evolution-card').className = `evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
+  //calcType(getPokemonObjectByImg(pokemon).type)
+   getPokemonOnClick(document.querySelectorAll(".clickable-image"));
+}
 
-  getPokemonOnClick();
+function calcType(type) {
+  let calc = [];
+  for(key in type){
+    calc.push((getPokemons().reduce((count, pokemon) => count + (pokemon.type.includes(type[key])),0))*1.15).toFixed(1);
+  }
+  console.log(calc);
+}
+
+function calcWeigth() {
+  let calcWeightAverage = `${(((getPokemons().map(pokemon => pokemon.weight).reduce((acc, current) =>
+    acc + parseFloat(current), 0))) / getPokemons().length).toFixed(1)} kg`;
+  return calcWeightAverage;
+}
+
+function calcHeight() {
+  let calcHeightAverage = `${(((getPokemons().map(pokemon => pokemon.height).reduce((acc, current) =>
+    acc + parseFloat(current), 0))) / getPokemons().length).toFixed(1)} m`;
+  return calcHeightAverage;
 }
