@@ -6,6 +6,7 @@ window.onload = function () {
   getPokemonOnClick(document.querySelectorAll('.img-evolutions'))
 
 }
+
 let arrayResult = [];
 
 let buttonsFilter = document.querySelectorAll('.type-pokemon');
@@ -17,7 +18,6 @@ for (let button of buttonsFilter) {
     } else {
       filterByType(type);
     }
-    //getPokemonOnClick();
     document.querySelector('#input-name-pokemon').value = '';
   })
 }
@@ -115,7 +115,7 @@ function getPokemonOnClick(pokemonList) {
       setPokemon(event.target.src);
       showEvolution(event.target.src);
       showInfoBoard(event.target.src);
-      getPokemonOnClick(document.querySelectorAll('.img-evolutions'))
+      getPokemonOnClick(document.querySelectorAll('.img-evolutions'));
     })
   }
 }
@@ -156,9 +156,7 @@ function setPokemon(img) {
   const divImg = document.querySelector('.img-picked-pokemon');
   let poke = getPokemonObjectByImg(img);
   divImg.innerHTML = `<img src="${getPokemonImage(poke.id)}" class=" ${parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
-                      <img class="${ parseFloat(poke.height) >= 1.20 ? 'sombra large' : 'sombra small'}">`
-
-  calcRareness(getPokemonObjectByImg(img).spawn_chance);
+                      <img class="${ parseFloat(poke.height) >= 1.20 ? 'shadow large' : 'shadow small'}">`
 }
 
 function showInfoBoard(pokemon) {
@@ -171,11 +169,11 @@ function showInfoBoard(pokemon) {
       ${setTypeDescription(selectedPokemon["type"])}
     </div>
     <section class="info-container">
-      <div><h5 class="title-info">Weaknesses:</h5><span class="info">${selectedPokemon["weaknesses"].join(", ")}</span></div>
+      <div><h5 class="title-info">Weaknesses:</h5> <span class="info">${selectedPokemon["weaknesses"].join(", ")}</span></div>
     </section>
     <section class="info-container">
-      <div><h5 class="title-info">Weight:</h5><span class="info">${parseFloat(selectedPokemon.weight).toFixed(1)} kg - the average of all 151 pokémons is ${calcWeigth()}</span></div>
-      <div><h5 class="title-info">Height:</h5><span class="info">${parseFloat(selectedPokemon.height).toFixed(1)} m - the average of all 151 pokémons is ${calcHeight()}</span></div>
+      <div><h5 class="title-info">Weight:</h5> <span class="info">${parseFloat(selectedPokemon.weight).toFixed(1)} kg - the average of all 151 pokémons is ${calcWeigth()}</span></div>
+      <div><h5 class="title-info">Height:</h5> <span class="info">${parseFloat(selectedPokemon.height).toFixed(1)} m - the average of all 151 pokémons is ${calcHeight()}</span></div>
     </section>
     </section>
   `
@@ -208,8 +206,8 @@ function showEvolution(pokemon) {
   evolution = ordena(evolution);
 
   divEvolutions.innerHTML = `  
-  ${evolution.map((poke) => `
-  <div>
+    ${evolution.map((poke) => `
+    <div>
     <div class="pokemon-circle">
       <img src="${poke["img"]}" class="img-evolutions clickable-image" />
     </div>
@@ -217,11 +215,11 @@ function showEvolution(pokemon) {
   </div>
   <div class="arrow-evolution">
     <i class="fas fa-arrow-circle-right"></i>
-  </div>
-  `).join(" ")}`
+    </div>
+    `).join(" ")}`
+
   document.querySelector('.evolutions-pokemons').classList.remove('hidden');
   document.querySelector('.evolution-card').className = `evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
-  getPokemonOnClick(document.querySelectorAll(".clickable-img"));
 }
 
 function calcType(type) {
