@@ -303,7 +303,7 @@ background-image: url(../images/bg2.png);
 }
 
 .description-pokemon-card {
-    border-radius: 1em;
+    border-radius: 1em 1em 0 0;
     padding: 1em;
     display: flex;
     flex-direction: column;
@@ -311,11 +311,9 @@ background-image: url(../images/bg2.png);
 }
 
 .evolution-card {
-    width: 40vw;
-    border-radius: 1em;
+    border-radius: 0 0 1em 1em;
     padding: 10px;
     box-sizing: border-box;
-    margin: 5px 0;
 }
 
 .img-evolutions {
