@@ -2,8 +2,7 @@ const IMAGES = {
     "images": [
         {
             "id": 1,
-            "src": "https://i.imgur.com/fpRgrYJ.png",
-            "desc":"Bulbasaur is a small, quadruped Pokémon that has blue-green skin with darker green patches. Each of its thick legs ends with three sharp claws. On its back is a green plant bulb, which is grown from a seed planted there at birth. The bulb provides it with energy through photosynthesis as well as from the nutrient-rich seeds contained within."
+            "src": "https://i.imgur.com/fpRgrYJ.png"
         },
         {
             "id": 2,
@@ -571,7 +570,7 @@ const IMAGES = {
         },
         {
             "id": 143,
-            "src": "https://png2.kisspng.com/sh/e61f1f5bf805df7104db23b8db9e3fd9/L0KzQYm3V8E3N5D3R91yc4Pzfri0kB5wep1mkJ95b3vwf7A0kCVvNZJzfJ92b3BxPbL6iL1sbaVogOd2LYDye772jr1oepJ1gNtsLYDsiLbzTcVjPJU5S6luNELmcYa7TsE4PWI8SqI8MUW2QYiCUMIxPmM8S6g3cH7q/kisspng-snorlax-pokmon-sun-and-moon-ash-ketchum-pokmon-graphic-pixel-5b4d437e42ca54.1751720315317902062736.png"
+            "src": "https://static.pokemonpets.com/images/monsters-images-300-300/2143-Shiny-Snorlax.png"
         },
         {
             "id": 144,

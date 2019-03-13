@@ -3,7 +3,8 @@ window.onload = function () {
   setPokemon(arrayResult[0].img);
   showEvolution(arrayResult[0].img);
   showInfoBoard(arrayResult[0].img);
-  getPokemonOnClick(document.querySelectorAll('.img-evolutions'));
+  getPokemonOnClick(document.querySelectorAll('.img-evolutions'))
+
 }
 let arrayResult = [];
 
@@ -16,7 +17,7 @@ for (let button of buttonsFilter) {
     } else {
       filterByType(type);
     }
-    getPokemonOnClick();
+    //getPokemonOnClick();
     document.querySelector('#input-name-pokemon').value = '';
   })
 }
@@ -25,7 +26,7 @@ document.querySelector('#input-name-pokemon').addEventListener('input', function
   filterByName(event.target.value);
 });
 
-document.querySelector('.pokemon-title').addEventListener('click', function(event){
+document.querySelector('.pokemon-title').addEventListener('click', function (event) {
   document.location.reload();
 });
 
@@ -110,12 +111,12 @@ function ordena(array) {
 
 function getPokemonOnClick(pokemonList) {
   for (let pokemon of pokemonList) {
-    
     pokemon.addEventListener('click', function (event) {
       setPokemon(event.target.src);
       showEvolution(event.target.src);
       showInfoBoard(event.target.src);
-    }) 
+      getPokemonOnClick(document.querySelectorAll('.img-evolutions'))
+    })
   }
 }
 
@@ -156,6 +157,8 @@ function setPokemon(img) {
   let poke = getPokemonObjectByImg(img);
   divImg.innerHTML = `<img src="${getPokemonImage(poke.id)}" class=" ${parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
                       <img class="${ parseFloat(poke.height) >= 1.20 ? 'sombra large' : 'sombra small'}">`
+
+  calcRareness(getPokemonObjectByImg(img).spawn_chance);
 }
 
 function showInfoBoard(pokemon) {
@@ -182,7 +185,7 @@ function showInfoBoard(pokemon) {
 function setTypeDescription(typeArray) {
   stringType = '';
   for (type of typeArray) {
-    stringType += `<span class="infoinfo" data-tooltip="${getPokemonDescriptionType(type).desc} Pokemons type ${type} represents ${calcType(type)} of all the 151 Pokémons."> ${type.toUpperCase()} </span>`
+    stringType += `<span class="infoinfo" data-tooltip="${getPokemonDescriptionType(type).desc}  ${type}-type Pokémon represents ${calcType(type)} of all Pokémon from Kanto."> ${type.toUpperCase()} </span>`
   }
   return stringType;
 }
@@ -204,35 +207,27 @@ function showEvolution(pokemon) {
   evolution.push(getPokemonObjectByImg(pokemon))
   evolution = ordena(evolution);
 
-  if (evolution.length === 1) {
-    document.querySelector('.evolutions-pokemons').classList.add('hidden')
-  } else {
-
-    divEvolutions.innerHTML = `  
-    ${evolution.map((poke) => `
-    <div>
+  divEvolutions.innerHTML = `  
+  ${evolution.map((poke) => `
+  <div>
     <div class="pokemon-circle">
-    <img src="${poke["img"]}" class="img-evolutions clickable-image" />
+      <img src="${poke["img"]}" class="img-evolutions clickable-image" />
     </div>
     <h4 class="name-evolution">${poke["name"]}</h4>
-    </div>
-    <div class="arrow-evolution">
+  </div>
+  <div class="arrow-evolution">
     <i class="fas fa-arrow-circle-right"></i>
-    </div>
-    `).join(" ")}`
-
-    document.querySelector('.evolutions-pokemons').classList.remove('hidden');
-    document.querySelector('.evolution-card').className=`evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
-  }
+  </div>
+  `).join(" ")}`
+  document.querySelector('.evolutions-pokemons').classList.remove('hidden');
+  document.querySelector('.evolution-card').className = `evolution-card ${getPokemonObjectByImg(pokemon).type[0].toLowerCase()}`;
+  getPokemonOnClick(document.querySelectorAll(".clickable-img"));
 }
 
 function calcType(type) {
-
   arrayResult = [];
   arrayResult = getPokemons().filter((pokemon) => (pokemon["type"].includes(type)));
-
   let calc = (arrayResult.length / getPokemons().length * 100).toFixed(2) + '%';
-
   return calc;
 }
 
@@ -247,3 +242,25 @@ function calcHeight() {
     acc + parseFloat(current), 0))) / getPokemons().length).toFixed(1)} m`;
   return calcHeightAverage;
 }
+
+function getRareness(){
+  let calc = getPokemons().map(pokemon => pokemon.spawn_chance);
+    return calc;
+  }
+
+function calcRareness(spawnChance) {
+  let calc = getRareness().reduce((count, pokemon) => count + (pokemon.spawn_chance === spawnChance));
+}
+
+var ctx = document.querySelector(".rareness-chart");
+var rarenessChart = new Chart(ctx,{
+    type: 'doughnut',
+    data: {
+      datasets: [
+        {
+        label:'less',
+        backgroundColor: ['#f1c40f', '#e67e22'],
+        data: ['1', '5']
+        }
+      ],
+    }});

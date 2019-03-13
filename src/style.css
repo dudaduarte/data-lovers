@@ -548,3 +548,9 @@ background-image: url(../images/bg2.png);
     align-items: center;
     flex-wrap: wrap;
 }
+
+.rareness-charty{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
