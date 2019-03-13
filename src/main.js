@@ -5,6 +5,7 @@ window.onload = function () {
   showInfoBoard(arrayResult[0].img);
   getPokemonOnClick(document.querySelectorAll('.img-evolutions'));
 }
+
 let arrayResult = [];
 
 let buttonsFilter = document.querySelectorAll('.type-pokemon');
