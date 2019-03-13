@@ -1,19 +1,6 @@
 # Data Lovers
 
-## Índice
 
-* [Preâmbulo](#preâmbulo)
-* [Descrição](#resumo-do-projeto)
-* [Considerações gerais](#considerações-gerais)
-* [Objetivos de aprendizagem](#objetivos-de-aprendizagem)
-* [Parte obrigatória](#parte-obrigatória)
-* [Parte opcional](#parte-opcional-hacker-edition)
-* [Considerações técnicas](#considerações-técnicas)
-* [Primeiros passos](#primeiros-passos)
-* [Conteúdo de referência](#conteúdo-de-referência)
-* [Checklist](#checklist)
-
-***
 
 ## Preâmbulo
 
@@ -75,251 +62,22 @@ Esperamos que cada set de dados esteja acompanhado de uma identidade gráfica
 condizente. Você pode pesquisar na internet para ter referências sobre cada um
 dos temas e trabalhar em uma identidade para sua página.
 
-## Considerações gerais
+## Definição do usuário
 
-* Este projeto deve ser feito em duplas.
-* O projeto será entregue através do Github (commit/push) e a
-  interface será entregue pelo Github Pages.
+O primeiro passo para a definição do usuário - cujas necessidades queremos atender com o nosso produto - foi determinar com qual dos temas propostos na seção "Resumo do Projeto" iríamos trabalhar. Escolhemos o banco de dados do Pokémon e, sendo assim, determinamos que os nossos usuários ideais seriam homens e mulheres de 10 a 25 anos, que jogam os jogos do pokémon (sejam os de gameboy/emulador ou os de celular, como o pokémon go) e que eventualmente necessitem acessar informações básicas sobre pokémons específicos - por exemplo, contra que tipos de pokémons ele é forte ou fraco em batalha - para tomar decisões nos seus jogos. 
 
-## Objetivos de aprendizagem
+## Definição e implementação do projeto
 
-O objetivo principal deste projeto é que você aprenda a desenvolver
-uma interface web onde se possa visualizar e manipular dados, entendendo o
-que o usuário necessita.
+Determinados os usuários ideais bem como suas necessidades, pensamos num produto para atendê-las: um site com os 151 pokémons de Kanto, disponíveis para o usuário acessar e consultar informações - como qual seu tipo, fraquezas, raridade, peso e altura. 
+A partir desse objetivo, criamos uma primeira versão de interface e logo percebemos os seus problemas: não era simples em termos de navegação, exigindo que o usuário ficasse constantemente rolando o scroll de cima para baixo, para clicar em um pokemon (na parte de baixo da página) e ver suas informações (que apareciam na parte de cima).
+Essa primeira versão da interface é essa:
 
-Falando com mais clareza, você aprenderá a:
+![interface 1](https://github.com/dudaduarte/data-lovers/blob/branchsave/images/interface/design-carla.png)
 
-* Aplicar e aprofundar tudo o que aprendeu no projeto anterior.
-* Pensar nas **necessidades dos usuários** para criar uma interface que faça
-  sentido e com tarefas claras.
-* Trabalhar com suas definições de pronto (_definition of done_) na organização
-  e planificação de seu trabalho.
-* Definir os dados e de que forma mostrá-los no produto, baseando-se em seu
-  **entendimento de usuário**.
-* Criar produtos que sigam os **princípios básicos de usabilidade**.
-* Iterar o desenho do produto, baseando-se nos resultados dos
-  **testes de usabilidade**.
-* Manipular **_arrays_ e _objetos_**.
-* **Manipular o DOM** (agregar elementos dinamicamente, baseados nos dados).
-* **Manejar eventos do DOM** para permitir interação com o usuário
-  (dados filtrados, ordenados, etc).
-* Entender os benefícios e complexidades de **trabalhar em equipe** em um
-  ambiente de incertezas.
+A segunda interface criada para esse projeto foi pensada de modo a solucionar o problema descrito acima, que foi encontrado na primeira interface. O painel de pokémons ficaria do lado direito e as informações do pokémon clicado apareceria do lado esquerdo, facilitando a navegação. As informações do pokémon selecionado apareceriam escritas num card em um sistema de galeria em carrossel.
 
-## Parte Obrigatória
+![interface 2](https://github.com/dudaduarte/data-lovers/blob/branchsave/images/interface/Projeto2.png)
 
-Os critérios para considerar que você completou o projeto são:
+Finalmente, meramente por uma escolha estética, preferimos eliminar a galeria em carrossel e decidimos por exibir os cards de informações de maneira simples (sem galeria) em cima da fotografia do pokémon, que estaria posicionado acima da grama da fotografia do background. Foi criado, então, o protótipo para simulação simples das atividades do usuário no site: https://marvelapp.com/882a1e8. Enviamos os links para alguns amigos que se encaixavam no que pensamos como usuário ideal e vimos que o protótipo desenvolvido estava funcionando de acordo com as nossas espectativas. Poucas alterações foram feitas no protótipo, apenas algumas mudanças estéticas foram ocorrendo paralelamente ao desenvolvimento do código.
 
-### Definição do produto
-
-Documente brevemente seu trabalho no arquivo `README.md` de seu repositório,
-nos contando como foi seu processo de desenvolvimento do projeto e como
-acredita que seu produto resolve o problema (os problemas) do seu usuário.
-
-### Desenho da interface de usuário
-
-#### Protótipo
-Durante seu trabalho você deverá ter feito esboços de sua solução usando papel
-e lápis. Recomendamos que você tire fotos de todas as iterações que faça, suba
-para seu repositório, e as mencione em seu`README.md`. Caso queira, pode
-desenhar protótipos de média fidelidade usando o [Marvel](https://marvelapp.com/)
-ou o [Figma](https://www.figma.com/).
-
-#### Testes de usabilidade
-
-Durante o desafio você deverá realizar testes de usabilidade com diversos
-usuários. Com base nos resultados dos testes, você deverá reorganizar seu
-protótipo. Documente as diversas iterações para ter ideia da evolução e para
-conseguir resgatar ideias mais tarde.
-
-### Implementação de Interface de Usuário (HTML/CSS/JS)
-
-Logo após desenhar sua interface de usuário você deverá trabalhar em sua
-implementação. Como mencionamos, **não** é necessário que desenvolva uma
-interface tal como a desenhou. Você terá um tempo limitado para codar, então,
-deverá priorizar. Como mínimo, sua implementação deve:
-
-1. Mostrar os dados em uma interface: pode ser um card, uma tabela, uma
-   lista, etc.
-2. Permitir ao usuário filtrar e ordenar os dados.
-3. Calcular estatísticas como média aritmética, máximo e/ou mínimo de algum
-   atributo numérico, ou contar quantas vezes aparece um determinado valor,
-   por exemplo.
-
-## Parte Opcional (Hacker edition)
-
-Features/características extras sugeridas:
-* No lugar de consumir os dados de forma estática, você pode trabalhar com
-  eles de forma dinâmica, carregando um arquivo JSON por meio de um `fetch`.
-  A pasta `src/data` contém  uma versão `.js` e uma `.json` de cada set
-  de dados.
-* Agregar em sua interface de usuário visualizações gráficas. Para isso,
-  recomendamos explorar bibliotecas de gráficos como [Chart.js](https://www.chartjs.org/) ou [Google Charts](https://developers.google.com/chart/).
-
-[Vídeo do Dani usando o HighCharts](https://www.youtube.com/watch?v=MTXoCp2D7Ps)
-[Vídeo da Ju usando o Google Charts](https://youtu.be/ueixcpZ65oc)
-
-## Considerações técnicas
-
-A lógica do projeto deve estar implementada completamente em JavaScript
-(ES6), HTML e CSS. Neste projeto NÃO está permitido usar bibliotecas ou
-frameworks, somente [vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e), com exceção das
-bibliotecas para fazer gráficos (charts).
-Você não deve utilizar a _pseudo-variable_ `this`.
-O _boilerplate_ contém uma estrutura de arquivos como ponto de partida
-assim como toda configuração de dependências:
-
-```text
-.
-├── README.md
-└──src
-    ├── data
-    │   ├── injuries
-    │   │   ├── injuries.js
-    │   │   └── injuries.json
-    │   ├── lol
-    │   │   ├── lol.js
-    │   │   └── lol.json
-    │   ├── pokemon
-    │   │   ├── pokemon.js
-    │   │   └── pokemon.json
-    │   ├── steam
-    │   │   ├── steam.js
-    │   │   └── steam.json
-    │   └── worldbank
-    │       ├── worldbank.js
-    │       └── worldbank.json
-    ├── index.html
-    ├── main.js
-    └── style.css
-
-8 directories, 16 files
-```
-
-### `src/index.html`
-
-Assim como no projeto anterior, existe um arquivo `index.html`. Como
-você já sabe, aqui vai a página que se mostrará ao usuário. Também nos serve para indicar que scripts serão usados e unir tudo que fizemos.
-
-Neste arquivo você encontrará uma série de _etiquetas_ (_tags_) `<script>`
-_comentadas_. Para _carregar_ as diferentes fontes de dados você terá que
-_descomentar_ estas _tags_. Cada um destes scripts vai atribuir uma
-variável global com os dados correspondentes a essa fonte de dados.
-
-Por exemplo, se descomentamos a seguinte linha:
-
-```html
-<!-- <script src="./data/worldbank/worldbank.js"></script> -->
-```
-
-A linha ficaria assiim:
-
-```html
-<script src="./data/worldbank/worldbank.js"></script>
-```
-
-E agora teríamos a variável global `WORLDBANK` disponível em nossos
-outros scripts (como `src/data.js` ou `src/main.js`).
-
-### `src/main.js`
-
-Recomendamos usar `src/main.js` para toda a parte do seu código destinada
-a mostrar dados na tela. Com isto nos referimos basicamente as manipulações de DOM: operações como criação de nós, registro de manipuladores de eventos (_event listeners_ o _event handlers_), etc.
-
-Esta não é a única forma de dividir seu código. Você pode usar mais arquivos e pastas para que sua estrutura fique clara para suas companheiras.
-
-### `src/data`
-
-Nesta pasta estão os dados das diferentes fontes. Você encontrará uma pasta para cada fonte e dentro de cada pasta dois arquivos: um com a extensão `.js` e outro `.json`. Ambos arquivos contêm os mesmos dados; a diferença é que o `.js` usaremos através de uma tag `<script>`, enquanto
-que o `.json` está aí para que você possa, caso queira, carregar os dados de forma assíncrona com [`fetch()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API).
-
-## Avaliação
-
-Te aconselhamos revisar [a rúbrica](https://docs.google.com/spreadsheets/d/1hwyBoJWbA0MHGEMDLKqftIv64IhA1uKe2kmJhYpir4s/edit#gid=2045120301)
-para ver a descrição detalhada de cada _habilidade_ e cada _nível_.
-
-Esta é uma lista de todas as habilidades que avaliaremos ao final deste projeto:
-
-### Tech
-
-**CS**
-Lógica
-Arquitetura
-Padrões/Paradigmas
-**SCM**
-Git
-GitHub
-**JavaScript**
-Nomenclatura/semântica
-Funções/modularidade
-Estruturas de dados
-**HTML**
-Validação
-Semântica
-**CSS**
-DRY
-
-***
-
-## Dicas de como começar a trabalhar no projeto
-
-Antes de começar a escrever o código, você deve definir o que será feito
-com base nos conhecimentos que você possa obter dos usuários do seu
-produto. Essas perguntas podem te ajudar:
-
-* Quem são os principais usuários de seu produto?
-* Quais são os objetivos de seu usuário com relação ao seu produto?
-* Quais os dados mais importantes que eles querem ver em sua interface?
-* Quando utilizam ou utilizariam seu produto?
-
-Quando já estiver pronta para codar, te recomendamos começar desta forma:
-
-1. Uma das integrantes da dupla deve realizar um :fork_and_knife:
-   [fork](https://help.github.com/articles/fork-a-repo/) do repositório.
-   Seus _mentores_ compartilharão um _link_ que te dará acesso ao repo.
-   A outra integrante deve fazer um **fork do repositório de sua companheira**
-   e trabalharem juntas.
-2. :arrow_down: [Clone](https://help.github.com/articles/cloning-a-repository/)
-   seu _fork_ para seu computador (cópia local).
-3. Let's code! :rocket:
-
-***
-
-## Conteúdo de referência
-
-### Experiência de Usuário (UX Design)
-
-* Entrevistas com usuários
-* Princípios de usabilidade
-
-### Desenvolvimento Front-end
-
-* Unidade de arrays no curso de JavaScript no LMS.
-* Unidade de objetos no curso de JavaScript no LMS.
-* Unidade de funções no curso de JavaScript no LMS.
-* Unidade de DOM no curso de Browser JavaScript no LMS.
-* [Array no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Array)
-* [Array.sort no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Array/sort)
-* [Array.map no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Array/map)
-* [Array.filter no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter)
-* [Array.reduce no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce)
-* [Array.forEach no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Array/forEach)
-* [Object.keys no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys)
-* [Object.entries no MDN](https://developer.mozilla.org/pt-br/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries)
-* [Fetch API no MDN](https://developer.mozilla.org/pt-br/docs/Web/API/Fetch_API)
-* [json.org](https://json.org/json-pt.html)
-
-***
-
-## Checklist
-
-* [ ] Usar VanillaJS.
-* [ ] Inclui _Definição de produto_ clara e informativa no `README.md`.
-* [ ] Inclui esboço da solução (protótipo de baixa fidelidade e de alta fidelidade, se houver) no
-  `README.md`.
-* [ ] Inclui a lista de problema detectados através dos testes de usabilidade
-  no `README.md`.
-* [ ] UI: Mostra lista e/ou tabela com dados e/ou indicadores.
-* [ ] UI: Permite ordenar os dados por meio de um ou mais campos
-  (asc e desc).
-* [ ] UI: Permite filtrar os dados com base em uma condição.
+A implementação começou paralelamente à criação do protótipo e buscou atender a todos os objetivos previstos na apresentação do projeto - com exceção à parte do hacker edition.
