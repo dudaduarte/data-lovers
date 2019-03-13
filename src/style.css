@@ -395,7 +395,7 @@ background-image: url(../images/bg2.png);
     flex-direction: column;
 }
 
-.info-container2 {
+.large-info-container {
     width: 100%;
 }
 
@@ -501,7 +501,7 @@ background-image: url(../images/bg2.png);
     flex-wrap: wrap;
 }
 
-.sombra{
+.shadow{
     position: relative;
     top: -13%;
     content: url(http://www.pngall.com/wp-content/uploads/2017/05/Shadow-PNG-Image-File.png);

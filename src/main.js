@@ -16,7 +16,6 @@ for (let button of buttonsFilter) {
     } else {
       filterByType(type);
     }
-    //getPokemonOnClick();
     document.querySelector('#input-name-pokemon').value = '';
   })
 }
@@ -156,7 +155,7 @@ function setPokemon(img) {
   const divImg = document.querySelector('.img-picked-pokemon');
   let poke = getPokemonObjectByImg(img);
   divImg.innerHTML = `<img src="${getPokemonImage(poke.id)}" class=" ${parseFloat(poke.height) >= 1.20 ? 'poke-teste large' : 'poke-teste small'}">
-                      <img class="${ parseFloat(poke.height) >= 1.20 ? 'sombra large' : 'sombra small'}">`
+                      <img class="${ parseFloat(poke.height) >= 1.20 ? 'shadow large' : 'shadow small'}">`
 }
 
 function showInfoBoard(pokemon) {
